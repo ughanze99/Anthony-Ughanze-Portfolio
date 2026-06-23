@@ -10,3 +10,9 @@ These projects have been executed using my personal resources, but do not includ
 * Describe the purpose of the task and what it would be used to achieve in terms of solving a problem or making a process or resource more efficient.
 * Identify all the resources needed for the project and why they were selected
 * Provide proper documentation on the process, and also possible issues faced
+
+
+# Accomplished Projects 
+ * Deploy EC2 instance 
+ * Deploy S3 bucket to host static website 
+  
