@@ -1,0 +1,18 @@
+Add link to GitHub repository for project portfolio 
+
+Build project portfolio 
+   -- Create a GitHub repository 
+	1. Deploy an EC2.
+	2. Deploy a static website in S3 using Terraform. The website should host a copy of your resume. 
+	3. Deploy an application into Docker using Terraform
+
+	!! Use AWS S3 as the backend for terraform. !!
+	4. Deploy a 3 tier application using Terraform. 
+	5. Deploy an EC2 with an application.
+	6. Deploy an  application to an autoscaling group. 
+	7. Deploy an application to an autoscaling group with an ALB.
+	8. Build a CI/CD pipeline that automates the build test and deployment of an application image using Docker.
+	Use Draw.io to show your project
+
+  -- learn Scripting for Python and Bash
+	projects that bridge python to cloud 

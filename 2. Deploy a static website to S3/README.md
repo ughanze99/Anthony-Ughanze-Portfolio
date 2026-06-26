@@ -1,6 +1,8 @@
 # Provision for an S3 bucket that will host a static website
 The purpose of this document is to build a static website that will be used to host my resume. This will be hosted on an S3 bucket that will also be deployed on AWS
 
+## Instructions 
+
 # IAM Role 
 Create an IAM role and assign the role permission to upload and make changes to S3 buckets
 

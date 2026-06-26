@@ -15,4 +15,6 @@ These projects have been executed using my personal resources, but do not includ
 # Accomplished Projects 
  * Deploy EC2 instance 
  * Deploy S3 bucket to host static website 
+ * Deploy a trier application
+ 
   
