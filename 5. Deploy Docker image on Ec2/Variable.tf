@@ -57,6 +57,14 @@ variable "dockerfile_url" {
   default     = "https://raw.githubusercontent.com/ughanze99/Anthony-Ughanze-Portfolio/refs/heads/main/Scripts/Docker%20files/Dockerfile"
 }
 
+variable "target_directory" {
+  description = "The target directory where the files will be downloaded and used in the EC2 instance"
+  type        = string
+  default     = "/opt/anthony-ughanze-portfolio"
+}
+
+## This is added directly to the deployment file, this is kept here for reference, but not used in the Terraform configuration.
+/*
 variable "html_file_url" {
   description = "The URL for the HTML file to be downloaded and used in the EC2 instance"
   type        = string
@@ -68,9 +76,4 @@ variable "deploy_script_url" {
   type        = string
   default     = "https://raw.githubusercontent.com/ughanze99/Anthony-Ughanze-Portfolio/refs/heads/main/Scripts/Deployment/Deployment.sh"
 }
-
-variable "target_directory" {
-  description = "The target directory where the files will be downloaded and used in the EC2 instance"
-  type        = string
-  default     = "/opt/anthony-ughanze-portfolio"
-}
+*/

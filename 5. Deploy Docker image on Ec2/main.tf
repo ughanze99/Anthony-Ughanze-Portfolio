@@ -11,9 +11,9 @@ resource "aws_instance" "app_server" {
                 #!/bin/bash
 
                 # Define variables
-                # pull scripts from github
                 deployscript=var.deploy_script_url 
-
+                target_dir=var.target_directory
+                # pull scripts from github
                 echo " === Downloading deployment script === "
                 sudo curl -o "$target_dir/deployment.sh" "$deployscript"
 

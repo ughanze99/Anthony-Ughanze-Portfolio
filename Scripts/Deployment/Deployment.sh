@@ -22,17 +22,17 @@ sudo apt-get install -y awscli
 echo "===== Verifying Docker installation ====="
 docker --version
 
-# Define variables
- dockerfile="https://raw.githubusercontent.com/ughanze99/Anthony-Ughanze-Portfolio/refs/heads/main/Scripts/Docker%20files/Dockerfile"
- htmlfile="https://raw.githubusercontent.com/ughanze99/Anthony-Ughanze-Portfolio/refs/heads/main/Scripts/Html%20files/index.html"
- target_dir="/opt/anthony-ughanze-portfolio"
+# Gets the Dockerfile and HTML file from the GitHub repository and saves them as variables. The target directory is set to /opt/anthony-ughanze-portfolio.
+dockerfile="https://raw.githubusercontent.com/ughanze99/Anthony-Ughanze-Portfolio/refs/heads/main/Scripts/Docker%20files/Dockerfile"
+htmlfile="https://raw.githubusercontent.com/ughanze99/Anthony-Ughanze-Portfolio/refs/heads/main/Scripts/Html%20files/index.html"
+target_dir="/opt/anthony-ughanze-portfolio"
 
  # Check if target directory exists, if not create it
- if [ ! -d "$target_dir" ]; then
-    sudo mkdir -p "$target_dir"
- fi
+if [ ! -d "$target_dir" ]; then
+   sudo mkdir -p "$target_dir"
+fi
 
- # Download the Dockerfile, HTML file, and deployment script
+ # Download the Dockerfile and HTML file
 echo " === Downloading Dockerfile === "
 sudo curl -o "$target_dir/Dockerfile" "$dockerfile"
 
