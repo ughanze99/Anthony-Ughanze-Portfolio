@@ -15,12 +15,42 @@ sudo apt-get install -y docker.io
 sudo systemctl start docker
 sudo systemctl enable docker
 
+# Install AWS CLI
+echo "===== Installing AWS CLI ====="
+sudo apt-get install -y awscli
+
 echo "===== Verifying Docker installation ====="
 docker --version
 
-# Create the docker-compose.yml file
+# Define variables
+ dockerfile="https://raw.githubusercontent.com/ughanze99/Anthony-Ughanze-Portfolio/refs/heads/main/Scripts/Docker%20files/Dockerfile"
+ htmlfile="https://raw.githubusercontent.com/ughanze99/Anthony-Ughanze-Portfolio/refs/heads/main/Scripts/Html%20files/index.html"
+ target_dir="/opt/anthony-ughanze-portfolio"
+
+ # Check if target directory exists, if not create it
+ if [ ! -d "$target_dir" ]; then
+    sudo mkdir -p "$target_dir"
+ fi
+
+ # Download the Dockerfile, HTML file, and deployment script
+echo " === Downloading Dockerfile === "
+sudo curl -o "$target_dir/Dockerfile" "$dockerfile"
+
+echo " === Downloading HTML file === "
+sudo curl -o "$target_dir/index.html" "$htmlfile"
 
 
 # Build the docker image from the Dockerfile
 sudo docker build -t tony-ugh-pfl . 
+sudo docker tag tony-ugh-pfl ughanze99/anthony-ughanze-portfolio
 
+# pull the password from AWS Secrets Manager
+echo "===== Retrieving Docker Hub password from AWS Secrets Manager ====="
+docker_password=$(aws secretsmanager get-secret-value --secret-id dockerhub --query SecretString --output text)
+
+# login to Docker Hub
+sudo docker login --username=ughanze99 -- password=$docker_password
+sudo docker push ughanze99/anthony-ughanze-portfolio:latest
+
+# Run the Docker container
+sudo docker run -d -p 80:80 ughanze99/anthony-ughanze-portfolio:latest
