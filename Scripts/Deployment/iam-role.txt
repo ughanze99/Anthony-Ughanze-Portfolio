@@ -1,0 +1,12 @@
+/* This is the IAM policy that allows access to the Docker Hub password stored in AWS Secrets Manager.*/
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "secretsmanager:GetSecretValue",
+            "Resource": "arn:aws:secretsmanager:us-east-1:354509043603:secret:Dockerhub-K7GMRT"
+        }
+    ]
+}

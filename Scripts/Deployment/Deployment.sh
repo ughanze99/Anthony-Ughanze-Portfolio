@@ -41,16 +41,18 @@ sudo curl -o "$target_dir/index.html" "$htmlfile"
 
 
 # Build the docker image from the Dockerfile
+cd "$target_dir"
 sudo docker build -t tony-ugh-pfl . 
 sudo docker tag tony-ugh-pfl ughanze99/anthony-ughanze-portfolio
 
 # pull the password from AWS Secrets Manager
 echo "===== Retrieving Docker Hub password from AWS Secrets Manager ====="
-docker_password=$(aws secretsmanager get-secret-value --secret-id dockerhub --query SecretString --output text)
+docker_password=$(aws secretsmanager get-secret-value --secret-id Dockerhub --query SecretString --output text | jq -r .password)
 
 # login to Docker Hub
-sudo docker login --username=ughanze99 -- password=$docker_password
+sudo docker login --username=ughanze99 --password=$docker_password
 sudo docker push ughanze99/anthony-ughanze-portfolio:latest
 
 # Run the Docker container
+echo "===== Running the Docker container ====="
 sudo docker run -d -p 80:80 ughanze99/anthony-ughanze-portfolio:latest
