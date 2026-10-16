@@ -6,8 +6,3 @@
 **/*.tfstate
 **/*.tfstate.backup
 **/*.tfstate.lock.info
-
-====================================================
-## Ignore Terraform variables files that may contain sensitive data
-====================================================    
-Docker hub token.txt

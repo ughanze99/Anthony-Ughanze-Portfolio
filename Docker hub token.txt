@@ -1,6 +1,0 @@
-# Authenticate to Docker hub 
-To use the acess token from docker CLI client 
-
-# Run 
-docker login -u ughanze99
-dckr_pat_BrwzqdBiP1bxGgACpNFpKY9eniw
