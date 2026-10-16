@@ -1,0 +1,9 @@
+# ==========================================
+# Global Rules (Applies to all subfolders)
+# ==========================================
+
+*.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+/.terraform/
+/.Bicep/
